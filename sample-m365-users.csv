@@ -1,0 +1,9 @@
+DisplayName,UserPrincipalName,AccountEnabled,License,Department,Groups,LastSignInDaysAgo
+John Smith,john.smith@example.com,True,Microsoft 365 E3,IT,All-Staff;IT-Team,2
+Mary Jones,mary.jones@example.com,False,Microsoft 365 E3,Finance,All-Staff;Finance-Team,120
+Brian Williams,brian.williams@example.com,True,None,Operations,All-Staff,5
+Sarah Johnson,sarah.johnson@example.com,True,Microsoft 365 E3,HR,All-Staff;HR-Team,95
+Alex Garcia,alex.garcia@example.com,False,None,IT,All-Staff,180
+David Lee,david.lee@example.com,True,Microsoft 365 Business Basic,Operations,All-Staff;Operations-Team,1
+Karen Roberts,karen.roberts@example.com,True,Microsoft 365 E3,Finance,All-Staff;Finance-Team,12
+Emily Davis,emily.davis@example.com,True,Microsoft 365 Business Basic,HR,All-Staff;HR-Team,45
