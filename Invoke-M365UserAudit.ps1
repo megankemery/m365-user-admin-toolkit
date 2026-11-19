@@ -42,6 +42,16 @@ function Get-M365AuditFindings {
             $issues += "Potentially inactive account"
         }
 
+# Check disabled accounts with All-Staff membership
+$groups = @(
+    $user.Groups -split ";" |
+    ForEach-Object { $_.Trim() }
+)
+
+if (-not $enabled -and "All-Staff" -in $groups) {
+    $issues += "Disabled account retains All-Staff membership"
+}
+
         # Add flagged accounts to the report
         if ($issues.Count -gt 0) {
             $findings += [PSCustomObject]@{
