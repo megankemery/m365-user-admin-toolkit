@@ -1,0 +1,33 @@
+name: Microsoft 365 User Account Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "Invoke-M365UserAudit.ps1"
+      - "sample-m365-users.csv"
+      - ".github/workflows/m365-user-audit.yml"
+
+jobs:
+  audit:
+    name: Run M365 User Audit
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run PowerShell audit
+        shell: pwsh
+        run: |
+          ./Invoke-M365UserAudit.ps1
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: m365-user-audit-report
+          path: m365-user-audit-report.csv
+          if-no-files-found: error
+          retention-days: 7
