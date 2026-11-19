@@ -52,6 +52,20 @@ if (-not $enabled -and "All-Staff" -in $groups) {
     $issues += "Disabled account retains All-Staff membership"
 }
 
+# Assign administrative review priority
+$reviewPriority = "Low"
+
+if ($issues.Count -gt 1) {
+    $reviewPriority = "High"
+}
+elseif (
+    "Disabled account with license" -in $issues -or
+    "Potentially inactive account" -in $issues -or
+    "Disabled account retains All-Staff membership" -in $issues
+) {
+    $reviewPriority = "Medium"
+}
+
         # Add flagged accounts to the report
         if ($issues.Count -gt 0) {
             $findings += [PSCustomObject]@{
@@ -61,6 +75,7 @@ if (-not $enabled -and "All-Staff" -in $groups) {
                 AccountEnabled = $user.AccountEnabled
                 License = $user.License
                 LastSignInDaysAgo = $lastSignIn
+                ReviewPriority = $reviewPriority
                 Issues = $issues -join "; "
             }
         }
