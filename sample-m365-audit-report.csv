@@ -1,0 +1,5 @@
+DisplayName,UserPrincipalName,Department,AccountEnabled,License,LastSignInDaysAgo,ReviewPriority,Issues
+Mary Jones,mary.jones@example.com,Finance,False,Microsoft 365 E3,120,High,Disabled account with license; Disabled account retains All-Staff membership
+Brian Williams,brian.williams@example.com,Operations,True,None,5,Low,Enabled account without license
+Sarah Johnson,sarah.johnson@example.com,HR,True,Microsoft 365 E3,95,Medium,Potentially inactive account
+Alex Garcia,alex.garcia@example.com,IT,False,None,180,Medium,Disabled account retains All-Staff membership
