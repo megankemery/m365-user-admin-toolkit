@@ -143,5 +143,27 @@ foreach ($finding in $findings) {
     Write-Host ""
 }
 
+# Calculate administrative review priority totals
+$highPriority = @(
+    $findings | Where-Object { $_.ReviewPriority -eq "High" }
+).Count
+
+$mediumPriority = @(
+    $findings | Where-Object { $_.ReviewPriority -eq "Medium" }
+).Count
+
+$lowPriority = @(
+    $findings | Where-Object { $_.ReviewPriority -eq "Low" }
+).Count
+
+# Display priority summary
+Write-Host "==================================="
+Write-Host " ADMINISTRATIVE REVIEW SUMMARY"
+Write-Host "==================================="
+Write-Host "High priority accounts: $highPriority"
+Write-Host "Medium priority accounts: $mediumPriority"
+Write-Host "Low priority accounts: $lowPriority"
+Write-Host ""
+
 Write-Host "Audit completed successfully!" -ForegroundColor Green
 Write-Host "Report saved to: $outputFile"
